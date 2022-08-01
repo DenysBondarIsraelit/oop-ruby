@@ -8,7 +8,7 @@ class Card
     @numbers_card = numbers_card
   end
 
-  def is_valid_card
+  def is_valid_card?
     numbers_card = self.numbers_card.gsub(/[^\d]/, '').split('').map(&:to_i)
     if numbers_card.empty?
       return false
