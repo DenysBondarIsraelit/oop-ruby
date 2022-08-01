@@ -30,8 +30,3 @@ if user.user_age.to_i > 13
 else
   logger.info('new actions') { "user_name #{user.user_name}, user_age #{user.user_age}" }
 end
-
-puts user.user_name
-puts user.user_age
-
-# numbers_card = gets.chomp
