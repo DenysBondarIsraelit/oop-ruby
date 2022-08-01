@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 class Card
-  def initialize(numbers_card)
-    @numbers_card = numbers_card
-  end
 
   attr_reader :numbers_card
 
-  def valid_card(numbers_card)
-    numbers_card = numbers_card.gsub(/[^\d]/, '').split('').map(&:to_i)
+  def initialize(numbers_card)
+    @numbers = numbers_card
+  end 
+
+  def get_number_card
+    return @numbers 
+  end
+
+  def valid_card
+    numbers_card = get_number_card.gsub(/[^\d]/, '').split('').map(&:to_i)
     if numbers_card.empty?
       puts 'number_card is empty'
     else
@@ -32,3 +37,4 @@ class Card
     sum_hash
   end
 end
+

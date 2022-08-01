@@ -5,8 +5,6 @@ require_relative 'User'
 require_relative 'Card'
 
 logger = Logger.new('foo.log')
-file = File.open('foo.log', File::WRONLY | File::APPEND)
-logger = Logger.new(file)
 
 print 'Hi! Enter your name? '
 user_name = gets.chomp
@@ -19,8 +17,9 @@ if user.user_age.to_i > 13
   print 'Enter your number card? '
   numbers_card = gets.chomp
 
-  number_card = Card.new(numbers_card)
-  is_valid = number_card.valid_card(number_card.numbers_card)
+  card = Card.new(numbers_card)
+
+  is_valid = card.valid_card
 
   logger.info('new actions') do
     "user_name #{user.user_name},
