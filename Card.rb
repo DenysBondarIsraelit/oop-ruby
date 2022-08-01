@@ -10,9 +10,7 @@ class Card
 
   def valid?
     numbers_card = self.numbers_card.gsub(/[^\d]/, '').split('').map(&:to_i)
-    if numbers_card.empty?
-      return false
-    else
+    if !numbers_card.empty?
       sum_hash = 0
       sum_hash = check_hash_sum(numbers_card, sum_hash)
       (sum_hash % 10).zero?
