@@ -5,26 +5,21 @@ class Card
   attr_reader :numbers_card
 
   def initialize(numbers_card)
-    @numbers = numbers_card
-  end 
-
-  def get_number_card
-    return @numbers 
+    @numbers_card = numbers_card
   end
 
   def valid_card
-    numbers_card = get_number_card.gsub(/[^\d]/, '').split('').map(&:to_i)
+    numbers_card = self.numbers_card.gsub(/[^\d]/, '').split('').map(&:to_i)
     if numbers_card.empty?
       puts 'number_card is empty'
     else
       sum_hash = 0
       sum_hash = check_hash_sum(numbers_card, sum_hash)
-      puts sum_hash
       (sum_hash % 10).zero?
     end
   end
 
-  def check_hash_sum(valid_numbers,  sum_hash = 0)
+  private def check_hash_sum(valid_numbers,  sum_hash = 0)
     valid_numbers.each_with_index do |item, index|
       if item.even?
         val = valid_numbers[index]
