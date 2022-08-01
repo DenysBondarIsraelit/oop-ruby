@@ -19,7 +19,7 @@ if user.user_age.to_i > 13
 
   card = Card.new(numbers_card)
 
-  is_valid = card.valid_card
+  is_valid = card.is_valid_card
 
   logger.info('new actions') do
     "user_name #{user.user_name},
